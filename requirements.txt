@@ -1,0 +1,14 @@
+click
+Flask
+flask-marshmallow
+Flask-SQLAlchemy
+itsdangerous
+Jinja2
+MarkupSafe
+marshmallow
+packaging
+psycopg2-binary
+six
+SQLAlchemy
+Werkzeug
+# removed versions
