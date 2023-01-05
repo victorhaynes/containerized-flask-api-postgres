@@ -1,1 +1,1 @@
-## N/A
+## A containerized API featuring Docker, PostgreSQL, Flask, Flask-Marshmallow, SQLAlchemy
