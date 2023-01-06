@@ -11,4 +11,5 @@ psycopg2-binary
 six
 SQLAlchemy
 Werkzeug
+Flask-JWT-Extended
 # removed versions
