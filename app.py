@@ -23,6 +23,17 @@ jwt = JWTManager(app)
 ### Database (Table) Management (Routes) ################################
 
 
+@app.route('/initialize', methods=['GET'])
+def initialize():
+	db.create_all()
+	default_item = Item(title='generic title', content='generic content')
+	admin_user = User(email="admin@victorhaynes.com", password="admin")
+	db.session.add(default_item)
+	db.session.add(admin_user)
+	db.session.commit()
+	return jsonify(message="Database initialized and seeded.")
+
+
 @app.route('/create', methods=['GET'])
 @jwt_required()
 def db_create():
@@ -141,7 +152,7 @@ def register():
 	email = details['email']
 	exists = User.query.filter_by(email=email).first()
 	if exists:
-		return jsonify(message='Email already associated with an accoun.'), 409
+		return jsonify(message='Email already associated with an account.'), 409
 	else:
 		email = details['email']
 		password = details['password']
@@ -181,6 +192,12 @@ class UserSchema(ma.Schema):
 		fields = ('email',)
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
+
+
+### Instantiate database & seed #####################################
+### Instantiate database & seed #####################################
+### Instantiate database & seed #####################################
+
 
 
 if __name__ == '__main__':
